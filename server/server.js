@@ -1,5 +1,5 @@
-var express = require('express')
-  , app = express();
+var express = require('express'),
+    app = express();
 
 // Global environment settings
 process.env.PORT = 3000;
@@ -18,12 +18,12 @@ app.configure(function() {
 });
 
 app.configure('development', function() {
-  app.use(express.logger('dev'));
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+    app.use(express.logger('dev'));
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
 app.configure('production', function() {
-  app.use(express.logger()); 
+    app.use(express.logger()); 
 });
 
 exports.app = app;

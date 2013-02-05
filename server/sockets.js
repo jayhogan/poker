@@ -1,11 +1,11 @@
-var parent = module.parent.exports 
-  , app = parent.app
-  , server = parent.server
-  , express = require('express')
-  , sio = require('socket.io')
-  , io = sio.listen(server)
-  , games = parent.games
-  , Game = require('./game');
+var parent = module.parent.exports,
+    app = parent.app,
+    server = parent.server,
+    express = require('express'),
+    sio = require('socket.io'),
+    io = sio.listen(server),
+    games = parent.games,
+    Game = require('./game');
 
 
 io.sockets.on('connection', function (socket) {
