@@ -1,3 +1,5 @@
+/*global parent: true */
+
 var parent = module.parent.exports,
     app = parent.app,
     server = parent.server,
@@ -11,8 +13,8 @@ var parent = module.parent.exports,
 io.sockets.on('connection', function (socket) {
 
     socket.on('join game', function(data) {
-        var game = games[data.game_id]
-          , playerIsDealer = false;
+        var game = games[data.game_id],
+            playerIsDealer = false;
 
         if (!game) {
             game = games[data.game_id] = new Game(data.game_id, data.game_name);

@@ -13,7 +13,7 @@ function Story(id, name, description) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.points;
+    this.points = undefined;
 }
 
 /**
@@ -30,7 +30,7 @@ Game.prototype.addPlayer = function(name, email, isDealer) {
     if (isDealer)
         this.dealer = player;
     return player;
-}
+};
 
 /**
  * Removes a player from the game. The dealer cannot be removed from the game.
@@ -42,7 +42,7 @@ Game.prototype.removePlayer = function(name) {
     if (this.dealer !== name)
         return delete this.players[name];
     return false;
-}
+};
 
 /**
  * Adds a story for estimation.
@@ -54,5 +54,4 @@ Game.prototype.removePlayer = function(name) {
 Game.prototype.addStory = function(name, description, id) {
     id = id || name;
     this.stories[id] = new Story(id, name, description);
-}
-
+};
